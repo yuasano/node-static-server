@@ -12,13 +12,27 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// set basic authentication
+// on production environment
+if (app.get('env') === 'production') {
+  var username = process.env.BASIC_AUTH_USERNAME;
+  var password = process.env.BASIC_AUTH_PASSWORD;
+
+  if (typeof username !== 'undefined' && typeof password !== 'undefined') {
+    app.use(basicAuth(username, password));
+  }
+}
+
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,17 +64,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-// set basic authentication
-// on production environment
-if (app.get('env') === 'production') {
-  var username = process.env.BASIC_AUTH_USERNAME;
-  var password = process.env.BASIC_AUTH_PASSWORD;
-
-  if (typeof username !== 'undefined' && typeof password !== 'undefined') {
-    app.use(basicAuth(username, password));
-  }
-}
 
 
 module.exports = app;
