@@ -3,6 +3,8 @@ node-static-serverは静的リソースをホストすることを目的とし�
 静的リソースをディレクトリに配置、コマンド1つでローカル環境にWebサーバを起動し、その動作を確認することができます。  
 Heroku上で動かすこともできるため、デモ環境の構築や複数のメンバー間でのWebデザインの確認などに用いることも可能です。  
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ## 使い方
 node-static-serverはGitとNode.jsを用いているため、利用する際はそれらがインストールされている必要があります。  
 
@@ -13,7 +15,7 @@ $ git clone https://github.com/flect-miyake/node-static-server.git
 ```
 Gitを用いて、ローカル環境にリポジトリをクローンします。
 
-#### npmパッッケージのインストール
+#### npmパッケージのインストール
 Gitによってクローンされたディレクトリに移動し、npmパッケージのインストールコマンドを実行します。  
 ```
 $ cd node-static-server

@@ -1,0 +1,8 @@
+{
+  "name": "node-static-server",
+  "env": {
+    "NODE_ENV": "production",
+    "BASIC_AUTU_USERNAME": "user",
+    "BASIC_AUTH_PASSWORD": "password"
+  }
+}
